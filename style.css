@@ -1,0 +1,282 @@
+/* NORMALIZACION */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  /*  esto mantiene el alto y ancho a pesar del apdding y el margin */
+    font-family: 'Inconsolata';
+    list-style: none; /* quita la deco de las listas */
+    text-decoration: none; /* quita el subrayado de los enlaces */
+    color: white;
+
+}
+
+body{
+    background-color: black; /* TODO: BORRAR EL FONFO AL FINAL*/
+}
+
+header{
+    position: fixed; /* queda fijo en la parte superior */
+    right: 0;
+    top: 0;
+    z-index: 100; /* el header se muestra por encima */
+    width: 100%;
+    display: flex; /* los elemntos se ponen en linea */
+    align-items: center; /* centra verticalmente */
+    justify-content: space-between; /* los elementos se separan */
+    padding: 15px 3%;
+    background-color: transparent;
+
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 800; /* grueso de la fuente */
+}
+
+.navlist{
+    display: flex;
+
+}
+
+.navlist a{
+    margin-left: 50px;/*  separa las palabras */
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .5s ease 0; /* anima todas las caracteristicas del navlist a */
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+
+}
+
+#menu-icon{
+    display: none; /* se pone asi para que solo se vea cuando la pagina esta colpasada horizontalmente*/
+    }
+
+#menu-icon{
+    font-size: 35px;
+    z-index: 101; /* para que este sobre el header */
+    cursor: pointer;
+
+}
+
+#menu-toggle{
+    display: none; /* que nunca se vea el checkbox */
+}
+
+.menu-action-icon{
+    display: none; /* para que no se le pueda a hacer click */
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh; /* no ocupa menos de lo que se ve */
+    background: linear-gradient(245.59deg, #31494e 0%, #385e70 25%, #131313 75%); /* fondo gradiente */
+    position: relative; /* nos permite usar botton, top, etc */
+    display: grid; /* para que el hero se pueda escribir en dos columnas */
+    grid-template-columns: 1fr 1fr; /* las dos columnas */
+    align-items: center;/*  alinear verticalmente */
+    gap: 2rem; /* espacion entre las dos columnas */
+}
+section{
+    padding: 0 8%;
+
+}
+.hero-text h1{
+    font-family: 'Roboto Mono' ;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text p {
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-text h5{
+font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h4{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-img img{
+    width: 400px;
+    /* border-radius: 200px; */
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 3s linear;
+
+}
+
+.hero-img img:hover{
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text a {
+    display: inline-block;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.videos{
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+
+}
+
+.hero-text a.videos li{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block;
+    margin: 26px 0 ;
+    font-size: 25px;
+    transition: all .5s ease;
+}
+
+.icons i:hover{
+    color: #434343;
+    transform: translateY(-5px);
+}
+
+.scroll-down{
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i{
+    display: block;
+    padding: 12px;
+    font-size: 30px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover{
+    transform: translateY(-5px);
+}
+
+
+/* RESPONSIVE CON MEDIAS QUERIES */
+
+@media (max-width: 992px) {
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text  {
+        padding-top: 0;
+    }
+
+    .hero-img{
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p {
+        font-size: 70%;
+    }
+
+    .icons{
+        display: none;
+    }
+
+    .scroll-down{
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .menu-icon-action{
+        display: block;
+    }
+
+    #menu-icon{
+        display: block;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img {
+        margin: 0;
+    }
+
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: #131313c7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .5s ease;
+    }
+
+    .navlist a{
+        margin-left: 0;
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0;
+    }
+
+}
+
